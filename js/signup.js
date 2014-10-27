@@ -13,6 +13,7 @@ var signUp;
 // add event listeners for changes in the state of the page
 function onReady() {
     signUp = document.getElementById('signup');
+
     // populate states dropdown
     populateStates();
     showOccInput();
@@ -20,13 +21,8 @@ function onReady() {
     // make occupation box appear if "other" is selected
     signUp.elements['occupation'].addEventListener('change', showOccInput);
 
-
-    // allow user to navigate away from the page by clicking "No Thanks"
-    document.getElementById('cancelButton').addEventListener('click', navAway);
-
     // stop submission if invalid
     signUp.addEventListener('submit', onSubmit);
-
 }
 
 // add states to the dropdown
@@ -90,8 +86,6 @@ function validateForm(form) {
         formValid = false;
     }
 
-    console.log(formValid);
-
     return formValid;
 }
 
@@ -105,6 +99,7 @@ function validateField(field) {
     } else {
         field.className = 'form-control invalid-field'
     }
+
     return valid;
 }
 
@@ -138,6 +133,7 @@ function checkZip(form) {
         valid = false;
         form.elements['zip'].className = 'form-control invalid-field'
     }
+
     return valid;
 }
 
@@ -156,14 +152,17 @@ function checkBirth(form) {
         form.elements['birthdate'].className = 'form-control invalid-field';
         message.innerHTML = 'You must be 13 or older to submit this form.';
     }
+
     return valid;
 }
 
-// confirm that user wants to navigate away, and if so redirect them
-function navAway() {
-    var leave = confirm('Are you sure you would like to navigate away from the page?');
-    if (leave) {
-        window.location = 'https://google.com';
-    }
-}
+// if user clicks "No thanks" bring up dialog
+$('#exit-button').click(function() {
+    $('#confirm-exit-modal').modal();
+});
+
+// navigate away from the page if user confirms
+$('#confirm-exit-button').click(function() {
+    window.location = 'https://google.com';
+});
 

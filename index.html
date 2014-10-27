@@ -105,14 +105,33 @@
 
                 <div class="form-group">
                     <div class="col-sm-12 text-right">
-                        <button type="button" id="cancelButton" class="btn btn-default">No Thanks</button>
+                        <button type="button" id="exit-button" class="btn btn-default">No Thanks</button>
                         <button type="submit" class="btn btn-primary">Sign Me Up!</button>
                     </div>
                 </div>
 
             </form>
-        </div> <!-- .container -->
+        </div>
 
+        <div class="modal fade" id="confirm-exit-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Are You Sure?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to leave this page?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="confirm-exit-button">Yes, I want to leave.</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/jquery-2.1.1.js"></script>
+        <script src="js/bootstrap.js"></script>
         <script src = "js/moment.js"></script>
         <script src="js/us-states.js"></script>
         <script src="js/signup.js"></script>
